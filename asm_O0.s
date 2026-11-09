@@ -1,0 +1,349 @@
+
+prog_O0:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000401000 <_init>:
+  401000:	f3 0f 1e fa          	endbr64
+  401004:	48 83 ec 08          	sub    rsp,0x8
+  401008:	48 8b 05 d1 2f 00 00 	mov    rax,QWORD PTR [rip+0x2fd1]        # 403fe0 <__gmon_start__>
+  40100f:	48 85 c0             	test   rax,rax
+  401012:	74 02                	je     401016 <_init+0x16>
+  401014:	ff d0                	call   rax
+  401016:	48 83 c4 08          	add    rsp,0x8
+  40101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000401020 <.plt>:
+  401020:	ff 35 ca 2f 00 00    	push   QWORD PTR [rip+0x2fca]        # 403ff0 <_GLOBAL_OFFSET_TABLE_+0x8>
+  401026:	ff 25 cc 2f 00 00    	jmp    QWORD PTR [rip+0x2fcc]        # 403ff8 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40102c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  401030:	f3 0f 1e fa          	endbr64
+  401034:	68 00 00 00 00       	push   0x0
+  401039:	e9 e2 ff ff ff       	jmp    401020 <_init+0x20>
+  40103e:	66 90                	xchg   ax,ax
+
+Disassembly of section .plt.sec:
+
+0000000000401040 <__stack_chk_fail@plt>:
+  401040:	f3 0f 1e fa          	endbr64
+  401044:	ff 25 b6 2f 00 00    	jmp    QWORD PTR [rip+0x2fb6]        # 404000 <__stack_chk_fail@GLIBC_2.4>
+  40104a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+Disassembly of section .text:
+
+0000000000401050 <_start>:
+  401050:	f3 0f 1e fa          	endbr64
+  401054:	31 ed                	xor    ebp,ebp
+  401056:	49 89 d1             	mov    r9,rdx
+  401059:	5e                   	pop    rsi
+  40105a:	48 89 e2             	mov    rdx,rsp
+  40105d:	48 83 e4 f0          	and    rsp,0xfffffffffffffff0
+  401061:	50                   	push   rax
+  401062:	54                   	push   rsp
+  401063:	45 31 c0             	xor    r8d,r8d
+  401066:	31 c9                	xor    ecx,ecx
+  401068:	48 c7 c7 36 11 40 00 	mov    rdi,0x401136
+  40106f:	ff 15 63 2f 00 00    	call   QWORD PTR [rip+0x2f63]        # 403fd8 <__libc_start_main@GLIBC_2.34>
+  401075:	f4                   	hlt
+  401076:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  40107d:	00 00 00 
+
+0000000000401080 <_dl_relocate_static_pie>:
+  401080:	f3 0f 1e fa          	endbr64
+  401084:	c3                   	ret
+  401085:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  40108c:	00 00 00 
+  40108f:	90                   	nop
+
+0000000000401090 <deregister_tm_clones>:
+  401090:	b8 18 40 40 00       	mov    eax,0x404018
+  401095:	48 3d 18 40 40 00    	cmp    rax,0x404018
+  40109b:	74 13                	je     4010b0 <deregister_tm_clones+0x20>
+  40109d:	b8 00 00 00 00       	mov    eax,0x0
+  4010a2:	48 85 c0             	test   rax,rax
+  4010a5:	74 09                	je     4010b0 <deregister_tm_clones+0x20>
+  4010a7:	bf 18 40 40 00       	mov    edi,0x404018
+  4010ac:	ff e0                	jmp    rax
+  4010ae:	66 90                	xchg   ax,ax
+  4010b0:	c3                   	ret
+  4010b1:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  4010b5:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+  4010bc:	00 00 00 00 
+
+00000000004010c0 <register_tm_clones>:
+  4010c0:	be 18 40 40 00       	mov    esi,0x404018
+  4010c5:	48 81 ee 18 40 40 00 	sub    rsi,0x404018
+  4010cc:	48 89 f0             	mov    rax,rsi
+  4010cf:	48 c1 ee 3f          	shr    rsi,0x3f
+  4010d3:	48 c1 f8 03          	sar    rax,0x3
+  4010d7:	48 01 c6             	add    rsi,rax
+  4010da:	48 d1 fe             	sar    rsi,1
+  4010dd:	74 11                	je     4010f0 <register_tm_clones+0x30>
+  4010df:	b8 00 00 00 00       	mov    eax,0x0
+  4010e4:	48 85 c0             	test   rax,rax
+  4010e7:	74 07                	je     4010f0 <register_tm_clones+0x30>
+  4010e9:	bf 18 40 40 00       	mov    edi,0x404018
+  4010ee:	ff e0                	jmp    rax
+  4010f0:	c3                   	ret
+  4010f1:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  4010f5:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+  4010fc:	00 00 00 00 
+
+0000000000401100 <__do_global_dtors_aux>:
+  401100:	f3 0f 1e fa          	endbr64
+  401104:	80 3d 15 2f 00 00 00 	cmp    BYTE PTR [rip+0x2f15],0x0        # 404020 <completed.0>
+  40110b:	75 13                	jne    401120 <__do_global_dtors_aux+0x20>
+  40110d:	55                   	push   rbp
+  40110e:	48 89 e5             	mov    rbp,rsp
+  401111:	e8 7a ff ff ff       	call   401090 <deregister_tm_clones>
+  401116:	c6 05 03 2f 00 00 01 	mov    BYTE PTR [rip+0x2f03],0x1        # 404020 <completed.0>
+  40111d:	5d                   	pop    rbp
+  40111e:	c3                   	ret
+  40111f:	90                   	nop
+  401120:	c3                   	ret
+  401121:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  401125:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+  40112c:	00 00 00 00 
+
+0000000000401130 <frame_dummy>:
+  401130:	f3 0f 1e fa          	endbr64
+  401134:	eb 8a                	jmp    4010c0 <register_tm_clones>
+
+0000000000401136 <main>:
+unsigned int checksum = 0;
+int decrypt_ok = 0;
+
+unsigned int rotl(unsigned int, int);
+
+int main() {
+  401136:	f3 0f 1e fa          	endbr64
+  40113a:	55                   	push   rbp
+  40113b:	48 89 e5             	mov    rbp,rsp
+  40113e:	48 81 ec c0 00 00 00 	sub    rsp,0xc0
+  401145:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+  40114c:	00 00 
+  40114e:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+  401152:	31 c0                	xor    eax,eax
+
+    const int SID = 1230009;
+  401154:	c7 85 6c ff ff ff b9 	mov    DWORD PTR [rbp-0x94],0x12c4b9
+  40115b:	c4 12 00 
+
+    // LCG calc
+    unsigned int x = (unsigned int)SID;
+  40115e:	8b 85 6c ff ff ff    	mov    eax,DWORD PTR [rbp-0x94]
+  401164:	89 85 48 ff ff ff    	mov    DWORD PTR [rbp-0xb8],eax
+    for (int i = 0; i < N; i++) {
+  40116a:	c7 85 4c ff ff ff 00 	mov    DWORD PTR [rbp-0xb4],0x0
+  401171:	00 00 00 
+  401174:	eb 5f                	jmp    4011d5 <main+0x9f>
+        x = 1664525 * x + 1013904223U;
+  401176:	8b 85 48 ff ff ff    	mov    eax,DWORD PTR [rbp-0xb8]
+  40117c:	69 c0 0d 66 19 00    	imul   eax,eax,0x19660d
+  401182:	05 5f f3 6e 3c       	add    eax,0x3c6ef35f
+  401187:	89 85 48 ff ff ff    	mov    DWORD PTR [rbp-0xb8],eax
+        v[i] = (int)(((x >> 16) % 26) + 65);
+  40118d:	8b 85 48 ff ff ff    	mov    eax,DWORD PTR [rbp-0xb8]
+  401193:	c1 e8 10             	shr    eax,0x10
+  401196:	89 c1                	mov    ecx,eax
+  401198:	89 c8                	mov    eax,ecx
+  40119a:	48 69 c0 4f ec c4 4e 	imul   rax,rax,0x4ec4ec4f
+  4011a1:	48 c1 e8 20          	shr    rax,0x20
+  4011a5:	c1 e8 03             	shr    eax,0x3
+  4011a8:	6b d0 1a             	imul   edx,eax,0x1a
+  4011ab:	89 c8                	mov    eax,ecx
+  4011ad:	29 d0                	sub    eax,edx
+  4011af:	83 c0 41             	add    eax,0x41
+  4011b2:	89 c1                	mov    ecx,eax
+  4011b4:	8b 85 4c ff ff ff    	mov    eax,DWORD PTR [rbp-0xb4]
+  4011ba:	48 98                	cdqe
+  4011bc:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  4011c3:	00 
+  4011c4:	48 8d 05 75 2e 00 00 	lea    rax,[rip+0x2e75]        # 404040 <v>
+  4011cb:	89 0c 02             	mov    DWORD PTR [rdx+rax*1],ecx
+    for (int i = 0; i < N; i++) {
+  4011ce:	83 85 4c ff ff ff 01 	add    DWORD PTR [rbp-0xb4],0x1
+  4011d5:	83 bd 4c ff ff ff 20 	cmp    DWORD PTR [rbp-0xb4],0x20
+  4011dc:	7e 98                	jle    401176 <main+0x40>
+    }
+
+    // keep original input
+    int orig[N];
+    for (int i = 0; i < N; i++) {
+  4011de:	c7 85 50 ff ff ff 00 	mov    DWORD PTR [rbp-0xb0],0x0
+  4011e5:	00 00 00 
+  4011e8:	eb 30                	jmp    40121a <main+0xe4>
+        orig[i] = v[i];
+  4011ea:	8b 85 50 ff ff ff    	mov    eax,DWORD PTR [rbp-0xb0]
+  4011f0:	48 98                	cdqe
+  4011f2:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  4011f9:	00 
+  4011fa:	48 8d 05 3f 2e 00 00 	lea    rax,[rip+0x2e3f]        # 404040 <v>
+  401201:	8b 14 02             	mov    edx,DWORD PTR [rdx+rax*1]
+  401204:	8b 85 50 ff ff ff    	mov    eax,DWORD PTR [rbp-0xb0]
+  40120a:	48 98                	cdqe
+  40120c:	89 94 85 70 ff ff ff 	mov    DWORD PTR [rbp+rax*4-0x90],edx
+    for (int i = 0; i < N; i++) {
+  401213:	83 85 50 ff ff ff 01 	add    DWORD PTR [rbp-0xb0],0x1
+  40121a:	83 bd 50 ff ff ff 20 	cmp    DWORD PTR [rbp-0xb0],0x20
+  401221:	7e c7                	jle    4011ea <main+0xb4>
+    }
+
+    // doing XOR
+    for (int i = 0; i < N; i++) {
+  401223:	c7 85 54 ff ff ff 00 	mov    DWORD PTR [rbp-0xac],0x0
+  40122a:	00 00 00 
+  40122d:	eb 3f                	jmp    40126e <main+0x138>
+        v[i] = v[i] ^ K;
+  40122f:	8b 85 54 ff ff ff    	mov    eax,DWORD PTR [rbp-0xac]
+  401235:	48 98                	cdqe
+  401237:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  40123e:	00 
+  40123f:	48 8d 05 fa 2d 00 00 	lea    rax,[rip+0x2dfa]        # 404040 <v>
+  401246:	8b 04 02             	mov    eax,DWORD PTR [rdx+rax*1]
+  401249:	34 b9                	xor    al,0xb9
+  40124b:	89 c1                	mov    ecx,eax
+  40124d:	8b 85 54 ff ff ff    	mov    eax,DWORD PTR [rbp-0xac]
+  401253:	48 98                	cdqe
+  401255:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  40125c:	00 
+  40125d:	48 8d 05 dc 2d 00 00 	lea    rax,[rip+0x2ddc]        # 404040 <v>
+  401264:	89 0c 02             	mov    DWORD PTR [rdx+rax*1],ecx
+    for (int i = 0; i < N; i++) {
+  401267:	83 85 54 ff ff ff 01 	add    DWORD PTR [rbp-0xac],0x1
+  40126e:	83 bd 54 ff ff ff 20 	cmp    DWORD PTR [rbp-0xac],0x20
+  401275:	7e b8                	jle    40122f <main+0xf9>
+    }
+
+    // checksum hesabı
+    unsigned int c = 0;
+  401277:	c7 85 58 ff ff ff 00 	mov    DWORD PTR [rbp-0xa8],0x0
+  40127e:	00 00 00 
+    for (int i = 0; i < N; i++) {
+  401281:	c7 85 5c ff ff ff 00 	mov    DWORD PTR [rbp-0xa4],0x0
+  401288:	00 00 00 
+  40128b:	eb 3c                	jmp    4012c9 <main+0x193>
+        c = rotl(c, 1) + (unsigned int)v[i];
+  40128d:	8b 85 58 ff ff ff    	mov    eax,DWORD PTR [rbp-0xa8]
+  401293:	be 01 00 00 00       	mov    esi,0x1
+  401298:	89 c7                	mov    edi,eax
+  40129a:	e8 27 01 00 00       	call   4013c6 <rotl>
+  40129f:	8b 95 5c ff ff ff    	mov    edx,DWORD PTR [rbp-0xa4]
+  4012a5:	48 63 d2             	movsxd rdx,edx
+  4012a8:	48 8d 0c 95 00 00 00 	lea    rcx,[rdx*4+0x0]
+  4012af:	00 
+  4012b0:	48 8d 15 89 2d 00 00 	lea    rdx,[rip+0x2d89]        # 404040 <v>
+  4012b7:	8b 14 11             	mov    edx,DWORD PTR [rcx+rdx*1]
+  4012ba:	01 d0                	add    eax,edx
+  4012bc:	89 85 58 ff ff ff    	mov    DWORD PTR [rbp-0xa8],eax
+    for (int i = 0; i < N; i++) {
+  4012c2:	83 85 5c ff ff ff 01 	add    DWORD PTR [rbp-0xa4],0x1
+  4012c9:	83 bd 5c ff ff ff 20 	cmp    DWORD PTR [rbp-0xa4],0x20
+  4012d0:	7e bb                	jle    40128d <main+0x157>
+    }
+    checksum = c;
+  4012d2:	8b 85 58 ff ff ff    	mov    eax,DWORD PTR [rbp-0xa8]
+  4012d8:	89 05 e6 2d 00 00    	mov    DWORD PTR [rip+0x2de6],eax        # 4040c4 <checksum>
+
+    // decrypt
+    for (int i = 0; i < N; i++) {
+  4012de:	c7 85 60 ff ff ff 00 	mov    DWORD PTR [rbp-0xa0],0x0
+  4012e5:	00 00 00 
+  4012e8:	eb 3f                	jmp    401329 <main+0x1f3>
+        v[i] = v[i] ^ K;
+  4012ea:	8b 85 60 ff ff ff    	mov    eax,DWORD PTR [rbp-0xa0]
+  4012f0:	48 98                	cdqe
+  4012f2:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  4012f9:	00 
+  4012fa:	48 8d 05 3f 2d 00 00 	lea    rax,[rip+0x2d3f]        # 404040 <v>
+  401301:	8b 04 02             	mov    eax,DWORD PTR [rdx+rax*1]
+  401304:	34 b9                	xor    al,0xb9
+  401306:	89 c1                	mov    ecx,eax
+  401308:	8b 85 60 ff ff ff    	mov    eax,DWORD PTR [rbp-0xa0]
+  40130e:	48 98                	cdqe
+  401310:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  401317:	00 
+  401318:	48 8d 05 21 2d 00 00 	lea    rax,[rip+0x2d21]        # 404040 <v>
+  40131f:	89 0c 02             	mov    DWORD PTR [rdx+rax*1],ecx
+    for (int i = 0; i < N; i++) {
+  401322:	83 85 60 ff ff ff 01 	add    DWORD PTR [rbp-0xa0],0x1
+  401329:	83 bd 60 ff ff ff 20 	cmp    DWORD PTR [rbp-0xa0],0x20
+  401330:	7e b8                	jle    4012ea <main+0x1b4>
+    }
+
+    // check if its same with orig
+    int matches = 0;
+  401332:	c7 85 64 ff ff ff 00 	mov    DWORD PTR [rbp-0x9c],0x0
+  401339:	00 00 00 
+    for (int i = 0; i < N; i++) {
+  40133c:	c7 85 68 ff ff ff 00 	mov    DWORD PTR [rbp-0x98],0x0
+  401343:	00 00 00 
+  401346:	eb 3b                	jmp    401383 <main+0x24d>
+        if (v[i] == orig[i]) {
+  401348:	8b 85 68 ff ff ff    	mov    eax,DWORD PTR [rbp-0x98]
+  40134e:	48 98                	cdqe
+  401350:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  401357:	00 
+  401358:	48 8d 05 e1 2c 00 00 	lea    rax,[rip+0x2ce1]        # 404040 <v>
+  40135f:	8b 14 02             	mov    edx,DWORD PTR [rdx+rax*1]
+  401362:	8b 85 68 ff ff ff    	mov    eax,DWORD PTR [rbp-0x98]
+  401368:	48 98                	cdqe
+  40136a:	8b 84 85 70 ff ff ff 	mov    eax,DWORD PTR [rbp+rax*4-0x90]
+  401371:	39 c2                	cmp    edx,eax
+  401373:	75 07                	jne    40137c <main+0x246>
+            matches++;
+  401375:	83 85 64 ff ff ff 01 	add    DWORD PTR [rbp-0x9c],0x1
+    for (int i = 0; i < N; i++) {
+  40137c:	83 85 68 ff ff ff 01 	add    DWORD PTR [rbp-0x98],0x1
+  401383:	83 bd 68 ff ff ff 20 	cmp    DWORD PTR [rbp-0x98],0x20
+  40138a:	7e bc                	jle    401348 <main+0x212>
+        }
+    }
+    if (matches == N) {
+  40138c:	83 bd 64 ff ff ff 21 	cmp    DWORD PTR [rbp-0x9c],0x21
+  401393:	75 0c                	jne    4013a1 <main+0x26b>
+        decrypt_ok = 1;
+  401395:	c7 05 29 2d 00 00 01 	mov    DWORD PTR [rip+0x2d29],0x1        # 4040c8 <decrypt_ok>
+  40139c:	00 00 00 
+  40139f:	eb 0a                	jmp    4013ab <main+0x275>
+    } else { decrypt_ok = 0;}
+  4013a1:	c7 05 1d 2d 00 00 00 	mov    DWORD PTR [rip+0x2d1d],0x0        # 4040c8 <decrypt_ok>
+  4013a8:	00 00 00 
+  4013ab:	b8 00 00 00 00       	mov    eax,0x0
+}
+  4013b0:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
+  4013b4:	64 48 2b 14 25 28 00 	sub    rdx,QWORD PTR fs:0x28
+  4013bb:	00 00 
+  4013bd:	74 05                	je     4013c4 <main+0x28e>
+  4013bf:	e8 7c fc ff ff       	call   401040 <__stack_chk_fail@plt>
+  4013c4:	c9                   	leave
+  4013c5:	c3                   	ret
+
+00000000004013c6 <rotl>:
+
+unsigned int rotl(unsigned int v, int shift) {
+  4013c6:	f3 0f 1e fa          	endbr64
+  4013ca:	55                   	push   rbp
+  4013cb:	48 89 e5             	mov    rbp,rsp
+  4013ce:	89 7d fc             	mov    DWORD PTR [rbp-0x4],edi
+  4013d1:	89 75 f8             	mov    DWORD PTR [rbp-0x8],esi
+    return (v << shift) | (v >> (32 - shift));
+  4013d4:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  4013d7:	8b 55 fc             	mov    edx,DWORD PTR [rbp-0x4]
+  4013da:	89 c1                	mov    ecx,eax
+  4013dc:	d3 c2                	rol    edx,cl
+  4013de:	89 d0                	mov    eax,edx
+}
+  4013e0:	5d                   	pop    rbp
+  4013e1:	c3                   	ret
+
+Disassembly of section .fini:
+
+00000000004013e4 <_fini>:
+  4013e4:	f3 0f 1e fa          	endbr64
+  4013e8:	48 83 ec 08          	sub    rsp,0x8
+  4013ec:	48 83 c4 08          	add    rsp,0x8
+  4013f0:	c3                   	ret
