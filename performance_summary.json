@@ -1,0 +1,135 @@
+{
+  "model": {
+    "GHz": 1.9,
+    "tau_ns": 0.5263157894736842,
+    "cores": 3,
+    "memory_cycles": 25
+  },
+  "O0": {
+    "classes": {
+      "ALU": 1622,
+      "Çarpma": 99,
+      "Load": 937,
+      "Store": 542,
+      "Branch / jump": 313
+    },
+    "Ic": 3513,
+    "data_references": 1777,
+    "core_cycles": 4024,
+    "CPI": 1.1454597210361515,
+    "m": 0.5058354682607458,
+    "MIPS": 1658.7226640159045,
+    "no_memory_ns": 2117.8947368421054,
+    "uncached_ns": 25499.473684210527,
+    "cached_ns": 4145.263157894737,
+    "cache": {
+      "refs": 1777,
+      "hits": 1694,
+      "misses": 83,
+      "H": 0.9532920652785594,
+      "writes": 575,
+      "Ts": 2.167698368036016
+    },
+    "outputs": {
+      "checksum": 673303641,
+      "decrypt_ok": 1
+    }
+  },
+  "O1": {
+    "classes": {
+      "ALU": 856,
+      "Çarpma": 99,
+      "Load": 135,
+      "Store": 135,
+      "Branch / jump": 200
+    },
+    "Ic": 1425,
+    "data_references": 337,
+    "core_cycles": 1823,
+    "CPI": 1.2792982456140352,
+    "m": 0.23649122807017545,
+    "MIPS": 1485.1892484914974,
+    "no_memory_ns": 959.4736842105264,
+    "uncached_ns": 5393.684210526316,
+    "cached_ns": 2044.7368421052631,
+    "cache": {
+      "refs": 337,
+      "hits": 268,
+      "misses": 69,
+      "H": 0.7952522255192879,
+      "writes": 135,
+      "Ts": 6.118694362017803
+    },
+    "outputs": {
+      "checksum": 673303641,
+      "decrypt_ok": 1
+    }
+  },
+  "optimization_speedup": 2.0272844272844273,
+  "cache_speedup_O0": 6.1514728288471305,
+  "amdahl": {
+    "instructions": 998,
+    "core_cycles": 1068,
+    "references": 466,
+    "time_ns": 1093.7618102656756,
+    "fraction": 0.26385823254250684,
+    "speedup": 1.213453051655404,
+    "limit": 1.358433992210261
+  },
+  "cache_value_replay": {
+    "16B/1-way": {
+      "hits": 1623,
+      "misses": 154,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 3.166572875633088
+    },
+    "16B/2-way": {
+      "hits": 1677,
+      "misses": 100,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 2.4068655036578503
+    },
+    "16B/4-way": {
+      "hits": 1694,
+      "misses": 83,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 2.167698368036016
+    },
+    "16B/8-way": {
+      "hits": 1694,
+      "misses": 83,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 2.167698368036016
+    },
+    "8B/4-way": {
+      "hits": 1631,
+      "misses": 146,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 3.054023635340463
+    },
+    "32B/4-way": {
+      "hits": 1729,
+      "misses": 48,
+      "outputs": {
+        "checksum": 673303641,
+        "decrypt_ok": 1
+      },
+      "Ts": 1.6752954417557688
+    }
+  }
+}
